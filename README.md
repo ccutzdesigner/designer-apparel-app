@@ -1,1 +1,1 @@
-# designer-app
+# designer-apparel-app
