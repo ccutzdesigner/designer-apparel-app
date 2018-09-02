@@ -55,3 +55,17 @@ a:hover{
   background-image: none;
   border-color: #8D483E;
 }
+
+@media screen and (max-width: 400px) {
+
+.cz-h1{
+  font-size:22px;
+}
+
+.search-txt{
+  width:80%;
+}
+
+  }
+
+
