@@ -1,0 +1,31 @@
+<div id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <h1>{{title}}</h1>
+        <form class="clearfix mb-4" method="POST" action="">
+          <div class="form-group">
+            <label for="season-name">Name:</label>
+            <input type="text" id="season-name" class="form-control" aria-describedby="season-name" placeholder="Enter season name">
+          </div>
+          
+          <button id="seasons-submit" class="btn btn-primary float-right">Submit</button>
+        </form>
+        <h3>Seasons:</h3>
+        <ul id="season-list" class="list-group">
+          {{#each seasons}}
+          <li data-id="{{this.id}}" class="list-group-item">
+            <a href="item/{{this.id}}">{{this.name}}</a>
+            <div class="float-right">
+              <button class="btn btn-danger season-delete" data-id="{{this.id}}">ｘ</button>
+            </div>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+ <script type="text/javascript" src="/js/members.js"></script>
+ <script type="text/javascript" src="/js/seasons.js"></script>
+

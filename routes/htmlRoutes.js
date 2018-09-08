@@ -8,18 +8,32 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = function (app) {
 
   // Load index page
-  app.get("/admin", function (req, res) {
+  app.get("/items", function (req, res) {
     db.items.findAll({}).then(function (dbItems) {
       //console.log(dbItems);
       if (req.user.admin) {
-        res.render("admin", {
-          msg: "Welcome Admin!",
+        res.render("items", {
+          title: "Items",
           items: dbItems
         });
       }
      
     });
   });
+
+    // Load 
+    app.get("/seasons", function (req, res) {
+      db.seasons.findAll({}).then(function (dbItems) {
+        //console.log(dbItems);
+        if (req.user) {
+          res.render("seasons", {
+            title: "Seasons",
+            seasons: dbItems
+          });
+        }
+       
+      });
+    });
 
   app.get("/signup", function(req, res) {
     // If the user already has an account send them to the members page

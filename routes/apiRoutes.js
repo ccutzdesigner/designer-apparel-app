@@ -51,7 +51,8 @@ module.exports = function(app) {
         email: req.user.email,
         id: req.user.id,
         firstName:req.user.firstName,
-        lastName:req.user.lastName
+        lastName:req.user.lastName,
+        admin:req.user.admin
       });
     }
   });
@@ -60,6 +61,10 @@ module.exports = function(app) {
   app.get("/api/items", function(req, res) {
     db.items.findAll({}).then(function(dbItems) {
       res.json(dbItems);
+    }).catch(function(err) {
+      console.log(err);
+      res.json(err);
+      // res.status(422).json(err.errors[0].message);
     });
   });
 
@@ -67,6 +72,9 @@ module.exports = function(app) {
     app.get("/api/items/:id", function(req, res) {
       db.items.findOne({ where: { id: req.params.id } }).then(function(dbItem) {
         res.json(dbItem);
+      }).catch(function(err) {
+        console.log(err);
+        res.json(err);
       });
     });
 
@@ -74,6 +82,9 @@ module.exports = function(app) {
   app.post("/api/item", function(req, res) {
     db.items.create(req.body).then(function(dbItem) {
       res.json(dbItem);
+    }).catch(function(err) {
+      console.log(err);
+      res.json(err);
     });
   });
 
@@ -81,6 +92,60 @@ module.exports = function(app) {
   app.delete("/api/item/:id", function(req, res) {
     db.items.destroy({ where: { id: req.params.id } }).then(function(dbItem) {
       res.json(dbItem);
+    }).catch(function(err) {
+      console.log(err);
+      res.json(err);
     });
   });
+
+   // Get all seasons
+   app.get("/api/seasons", function(req, res) {
+    db.seasons.findAll({}).then(function(dbItems) {
+      res.json(dbItems);
+    }).catch(function(err) {
+      console.log(err);
+      res.json(err);
+    });
+  });
+
+  // Create a new season
+  app.post("/api/season", function(req, res) {
+    db.seasons.create(req.body).then(function(dbItem) {
+      res.json(dbItem);
+    }).catch(function(err) {
+      console.log(err);
+      res.json(err);
+    });
+  });
+
+  // Delete an season by id
+  app.delete("/api/season/:id", function(req, res) {
+    db.seasons.destroy({ where: { id: req.params.id } }).then(function(dbItem) {
+      res.json(dbItem);
+    }).catch(function(err) {
+      console.log(err);
+      res.json(err);
+    });
+  });
+
+     // Get all materials
+     app.get("/api/materials", function(req, res) {
+      db.materials.findAll({}).then(function(dbItems) {
+        res.json(dbItems);
+      }).catch(function(err) {
+        console.log(err);
+        res.json(err);
+      });
+    });
+
+       // Get all types
+   app.get("/api/types", function(req, res) {
+    db.types.findAll({}).then(function(dbItems) {
+      res.json(dbItems);
+    }).catch(function(err) {
+      console.log(err);
+      res.json(err);
+    });
+  });
+
 };
