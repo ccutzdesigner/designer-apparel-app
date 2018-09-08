@@ -37,12 +37,12 @@ module.exports = function (app) {
     
     //loading materials
     app.get("/materials", function (req, res) {
-      db.seasons.findAll({}).then(function (dbItems) {
+      db.materials.findAll({}).then(function (dbItems) {
         //console.log(dbItems);
         if (req.user) {
           res.render("materials", {
             title: "Materials",
-            material: dbItems
+            materials: dbItems
           });
         }
        
