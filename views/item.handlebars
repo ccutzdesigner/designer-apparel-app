@@ -1,9 +1,17 @@
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+
 <div class="container">
   <div class="row">
     <div class="col-8 offset-2">
       <div class="card mt-4">
         <div class="card-body">
+
           <h5 class="card-title">{{item.name}}</h5>
+          <input type="hidden" value="{{item.pic}}" id="pic1url"> 
+<div id="template">
+  <img src="" id="pic1" width="200" height="200" alt="pic{{item.id}}">
+</div>
+          
           <p>
             <strong>Description:</strong> {{item.description}}
           </p>
@@ -28,3 +36,12 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+$(document).ready(function() {
+  //$("#pic1").attr("src",$("#pic1url").val());
+  var dataUrl=$("#pic1url").val();
+  var output = document.getElementById('pic1');
+    output.src = dataUrl;
+    //item.pic=dataURL;
+});
+</script>

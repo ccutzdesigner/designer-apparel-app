@@ -28,7 +28,7 @@
 
 
   // Initialize Firebase
-  var config = {
+  /*var config = {
     apiKey: "AIzaSyDZoaVCsW6dbUr1w7QmyYHi5HoI6pFP9gE",
     authDomain: "ccutz-48b13.firebaseapp.com",
     databaseURL: "https://ccutz-48b13.firebaseio.com",
@@ -40,4 +40,4 @@
   firebase.initializeApp(config);
 
   // Create a variable to reference the database.
-var storage=firebase.storage();
+var storage=firebase.storage();*/

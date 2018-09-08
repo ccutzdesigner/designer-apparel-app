@@ -1,17 +1,18 @@
 // Get references to page elements
 var $itemName = $("#item-name");
 var $itemDescription = $("#item-description");
-var $itemPrice=$("#item-price");
-var $itemType=$("#item-type");
-var $itemMaterial=$("#item-material");
-var $itemColors=$("#item-colors");
-var $itemSeasons=$("#item-seasons");
+var $itemPrice = $("#item-price");
+var $itemType = $("#item-type");
+var $itemMaterial = $("#item-material");
+var $itemColors = $("#item-colors");
+var $itemSeasons = $("#item-seasons");
 var $submitBtn = $("#submit");
 var $itemList = $("#item-list");
+var $itemPic = $("#item-pic");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveItem: function(item) {
+  saveItem: function (item) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -21,13 +22,13 @@ var API = {
       data: JSON.stringify(item)
     });
   },
-  getItems: function() {
+  getItems: function () {
     return $.ajax({
       url: "api/items",
       type: "GET"
     });
   },
-  deleteItem: function(id) {
+  deleteItem: function (id) {
     return $.ajax({
       url: "api/item/" + id,
       type: "DELETE"
@@ -36,9 +37,9 @@ var API = {
 };
 
 // refreshItems gets new items from the db and repopulates the list
-var refreshItems = function() {
-  API.getItems().then(function(data) {
-    var $items = data.map(function(item) {
+var refreshItems = function () {
+  API.getItems().then(function (data) {
+    var $items = data.map(function (item) {
       var $a = $("<a>")
         .text(item.name)
         .attr("href", "/item/" + item.id);
@@ -66,28 +67,43 @@ var refreshItems = function() {
 
 // handleFormSubmit is called whenever we submit a new item
 // Save the new item to the db and refresh the list
-var handleFormSubmit = function(event) {
+var handleFormSubmit = function (event) {
   event.preventDefault();
 
+  var itempic = document.getElementById("item-pic").files[0];
+
+  let file = new File([itempic], itempic, { "type": "image/jpg" });
+  var reader = new FileReader();
+  
+  var dataURL = "";
   var item = {
     name: $itemName.val().trim(),
     description: $itemDescription.val().trim(),
-    type:$itemType.val().trim(),
-    material:$itemMaterial.val().trim(),
-    color:$itemColors.val().trim(),
-    season:$itemSeasons.val().trim(),
-    price:$itemPrice.val().trim()
+    type: $itemType.val().trim(),
+    material: $itemMaterial.val().trim(),
+    color: $itemColors.val().trim(),
+    season: $itemSeasons.val().trim(),
+    price: $itemPrice.val().trim(),
+    pic: dataURL
   };
+  reader.onload = function () {
+    dataURL = reader.result;
+    var output = document.getElementById('output');
+    output.src = dataURL;
+    item.pic=dataURL;
+    API.saveItem(item).then(function () {
+      refreshItems();
+    });
+  };
+  reader.readAsDataURL(file);
+
+  var fileName = document.getElementById("item-pic").files[0].name;
+
 
   if (!(item.name)) {
     alert("You must enter an item name!");
     return;
   }
-
-  API.saveItem(item).then(function() {
-    refreshItems();
-  });
-
   $itemName.val("");
   $itemDescription.val("");
   $itemPrice.val("");
@@ -96,16 +112,19 @@ var handleFormSubmit = function(event) {
   $itemColors.val("");
   $itemSeasons.val("");
 
+
+
+
 };
 
 // handleDeleteBtnClick is called when an item's delete button is clicked
 // Remove the item from the db and refresh the list
-var handleDeleteBtnClick = function() {
+var handleDeleteBtnClick = function () {
   var idToDelete = $(this)
     .parent()
     .attr("data-id");
 
-  API.deleteItem(idToDelete).then(function() {
+  API.deleteItem(idToDelete).then(function () {
     refreshItems();
   });
 };

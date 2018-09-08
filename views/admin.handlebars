@@ -4,7 +4,7 @@
       <div class="col-8 offset-2">
         <h1>{{msg}}</h1>
         
-        <form class="clearfix mb-4" method="POST" action="">
+        <form class="clearfix mb-4" method="POST" action="" enctype="multipart/form-data">
           <div class="form-group">
             <label for="item-name">Name:</label>
             <input type="text" id="item-name" class="form-control" aria-describedby="item-name" placeholder="Enter item name">
@@ -13,6 +13,11 @@
             <label for="item-description">Description</label>
             <textarea class="form-control" id="item-description" aria-describedby="item-description" placeholder="Enter item Description"></textarea>
           </div>
+          <div class="form-group">
+            <label for="item-pic">Picture</label>
+            <input type="file" class="form-control upload" id="item-pic" accept=".jpeg,.jpg">
+          </div>
+          <img src="" data-src="holder.js/200x200?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" id="output" width="200" height="200">
           <div class="form-group">
             <label for="item-type">Type</label>
             <input type="text" class="form-control" id="item-type" aria-describedby="item-type" placeholder="Enter item type">
@@ -48,7 +53,6 @@
     </div>
   </div>
 </div>
+ <script type="text/javascript" src="/js/members.js"></script>
+ <script type="text/javascript" src="/js/index.js"></script>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<script src="/js/index.js"></script>
