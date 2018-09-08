@@ -7,57 +7,33 @@
 
 <body>
 
-  <header>
 
-    <div class="navbar navbar-dark bg-light shadow-sm">
-      <div class="container d-flex justify-content-between">
-        <a href="#" class="navbar-brand d-flex align-items-center">
-          <img src="images/logo/cz-seaweed.png" width="50" height="50">
-          <h1 class="cz-h1">Designer Apparel</h1>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader"
-          aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-    </div>
-    <div class="collapse bg-light" id="navbarHeader">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-8 col-md-7 py-4">
-            <h4 class="text-coral">About</h4>
-            <p class="text-muted"></p>
-          </div>
-          <div class="col-sm-4 offset-md-1 py-4">
-            <div class="social text-center">
-              <a href="https://www.facebook.com/CCutzlabel-927024624142008" target="blank">
-                <i class="fab fa-facebook-square"></i>
-              </a>
-              <a href="https://www.instagram.com/ccutzlabel/" target="blank">
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a href="mailto:marybellapu@gmail.com">
-                <i class="fas fa-envelope-square"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-  </header>
 
   <main role="main">
 
-    <section class="jumbotron bg-light">
+    <section class="jumbotron cz-light">
+
       <div class="container text-center">
-
-        <video autoplay loop muted width="100%" height="400" controls>
-          <source src="ccutz.mp4" type="video/mp4">
-          <source src="ccutz.mp4" type="video/mp4"> Your browser does not support the video tag.
-        </video>
-
+        <div class="row">
+          <div class="col-md-4 text-coral">
+            <H2>About</H2>
+            <P>It is a long established fact that a reader will be distracted by the readable content of a page when looking
+              at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,
+              as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing
+              packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum'
+              will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes
+              by accident, sometimes on purpose (injected humour and the like).~Jyothi Gompa
+              </P>
+          </div>
+          <div class="col-md-8">
+            <video autoplay loop muted controls>
+              <source src="ccutz.mp4" type="video/mp4">
+              <source src="ccutz.mp4" type="video/mp4"> Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
       </div>
+
     </section>
 
     <section class="container text-center">
@@ -66,13 +42,13 @@
         <input class="form-control mr-sm-2 search-txt" type="text" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
       </form>
-      <div class="navbar navbar-light bg-light shadow-sm">
+      <div class="navbar navbar-light cz-light shadow-sm">
         <div class="container d-flex justify-content-between">
-          <a href="#" class=" d-flex align-items-center">All</a>
-          <a href="#" class=" d-flex align-items-center">Latest</a>
-          <a href="#" class=" d-flex align-items-center">Spring</a>
-          <a href="#" class=" d-flex align-items-center">Summer</a>
-          <a href="#" class=" d-flex align-items-center">Wedding</a>
+          <a href="/" class=" d-flex align-items-center">All</a>
+          <a href="/season/latest" class=" d-flex align-items-center">Latest</a>
+          <a href="/season/spring" class=" d-flex align-items-center">Spring</a>
+          <a href="/season/summer" class=" d-flex align-items-center">Summer</a>
+          <a href="/season/wedding" class=" d-flex align-items-center">Wedding</a>
         </div>
       </div>
 
@@ -81,16 +57,13 @@
         {{#each items}}
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+            <img class="card-img-top" src="{{this.pic}}" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="item pic">
             <div class="card-body">
               <p class="card-text"><a href="item/{{this.id}}">{{this.name}}</a></p>
               <p class="card-text">{{this.description}}</p>
               <div class="d-flex justify-content-between align-items-center">
-                <small class="text-muted">{{this.type}}</small>
-                <small class="text-muted">{{this.material}}</small>
-                <small class="text-muted">{{this.color}}</small>
-                <small class="text-muted">{{this.season}}</small>
-                <small class="text-muted">{{this.price}}</small>
+                <small class="text-muted">#{{this.type}} #{{this.material}} #{{this.color}} #{{this.season}}
+                </small>
               </div>
             </div>
           </div>
@@ -100,32 +73,9 @@
     </section>
 
   </main>
+  <script type="text/javascript" src="/js/index.js"></script>
+ <script type="text/javascript" src="/js/members.js"></script>
 
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-left text-coral">&copy; CCutz</p>
-
-      <div class="social text-center">
-        <a href="https://www.facebook.com/CCutzlabel-927024624142008" target="blank">
-          <i class="fab fa-facebook-square"></i>
-        </a>
-        <a href="https://www.instagram.com/ccutzlabel/" target="blank">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="mailto:marybellapu@gmail.com">
-          <i class="fas fa-envelope-square"></i>
-        </a>
-      </div>
-    </div>
-  </footer>
-  <br>
-  <!-- Bootstrap core JavaScript
-    ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="js/lib/jquery.js"></script>
-  <script src="js/lib/popper.min.js"></script>
-  <script src="js/lib/bootstrap.min.js"></script>
-  <script src="js/lib/holder.min.js"></script>
 </body>
 
 </html>

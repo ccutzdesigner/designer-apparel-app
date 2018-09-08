@@ -1,12 +1,37 @@
+video {
+  width: 100%    !important;
+  height: auto   !important;
+}
+
+.social a:hover {
+    opacity: 0.7;
+}
+
+#menu li{
+float:right;
+}
+
+form.signup,
+form.login {
+  margin-top: 50px;
+}
+
+ .cz-light{
+  background-color:#ffff;
+ }
+
 .list-group-item {
   line-height: 2.5;
 }
 .jumbotron{
   padding:0px;
 }
-
+header{
+  margin-bottom:20px;
+}
 body{
-background-color: #f8f9fa!important;
+/*background-color: #f8f9fa;*/
+background-color:#ffff;
 }
 
 .text-coral{
@@ -56,6 +81,7 @@ a:hover{
   border-color: #8D483E;
 }
 
+
 @media screen and (max-width: 400px) {
 
 .cz-h1{
@@ -67,5 +93,8 @@ a:hover{
 }
 
   }
+
+
+
 
 
