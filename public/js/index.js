@@ -6,12 +6,18 @@ var $itemType = $("#item-type");
 var $itemMaterial = $("#item-material");
 var $itemColors = $("#item-colors");
 var $itemSeasons = $("#item-seasons");
-var $submitBtn = $("#submit");
-var $itemList = $("#item-list");
 var $itemPic = $("#item-pic");
 
+var $submitBtn = $("#submit");
+var $itemList = $("#item-list");
+
+var $seasonName=$("#season-name");
+var $seasonsSubmit=$("#seasons-submit");
+var $seasonList = $("#season-list");
+
+
 // The API object contains methods for each kind of request we'll make
-var API = {
+var itemAPI = {
   saveItem: function (item) {
     return $.ajax({
       headers: {
@@ -38,7 +44,7 @@ var API = {
 
 // refreshItems gets new items from the db and repopulates the list
 var refreshItems = function () {
-  API.getItems().then(function (data) {
+  itemAPI.getItems().then(function (data) {
     var $items = data.map(function (item) {
       var $a = $("<a>")
         .text(item.name)
@@ -91,7 +97,7 @@ var handleFormSubmit = function (event) {
     var output = document.getElementById('output');
     output.src = dataURL;
     item.pic=dataURL;
-    API.saveItem(item).then(function () {
+    itemAPI.saveItem(item).then(function () {
       refreshItems();
     });
   };
@@ -120,11 +126,17 @@ var handleFormSubmit = function (event) {
 // handleDeleteBtnClick is called when an item's delete button is clicked
 // Remove the item from the db and refresh the list
 var handleDeleteBtnClick = function () {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
+  var idToDelete = $(this).attr("data-id");
 
-  API.deleteItem(idToDelete).then(function () {
+  itemAPI.deleteItem(idToDelete).then(function () {
+    refreshItems();
+  });
+};
+
+var deleteSeason = function () {
+  var idToDelete = $(this).attr("data-id");
+
+  seasonAPI.deleteItem(idToDelete).then(function () {
     refreshItems();
   });
 };
@@ -132,3 +144,4 @@ var handleDeleteBtnClick = function () {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $itemList.on("click", ".delete", handleDeleteBtnClick);
+
