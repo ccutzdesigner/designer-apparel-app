@@ -1,0 +1,30 @@
+<div id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <h1>{{title}}</h1>
+        <form class="clearfix mb-4" method="POST" action="">
+          <div class="form-group">
+            <label for="types-name">Name:</label>
+            <input type="text" id="types-name" class="form-control" aria-describedby="types-name" placeholder="Enter types name">
+          </div>
+          
+          <button id="types-submit" class="btn btn-primary float-right">Submit</button>
+        </form>
+        <ul id="types-list" class="list-group">
+          {{#each types}}
+          <li data-id="{{this.id}}" class="list-group-item">
+            {{this.name}}
+            <div class="float-right">
+              <button class="btn btn-danger types-delete" data-id="{{this.id}}">ｘ</button>
+            </div>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+ <script type="text/javascript" src="/js/members.js"></script>
+ <script type="text/javascript" src="/js/types.js"></script>
+

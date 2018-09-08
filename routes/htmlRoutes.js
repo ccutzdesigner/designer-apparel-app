@@ -35,6 +35,19 @@ module.exports = function (app) {
       });
     });
 
+    app.get("/types", function (req, res) {
+      db.types.findAll({}).then(function (dbItems) {
+        //console.log(dbItems);
+        if (req.user) {
+          res.render("types", {
+            title: "types",
+            types: dbItems
+          });
+        }
+       
+      });
+    });
+
   app.get("/signup", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {

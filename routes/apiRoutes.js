@@ -128,6 +128,36 @@ module.exports = function(app) {
     });
   });
 
+  // Get all types
+  app.get("/api/types", function(req, res) {
+    db.types.findAll({}).then(function(dbItems) {
+      res.json(dbItems);
+    }).catch(function(err) {
+      console.log(err);
+      res.json(err);
+    });
+  });
+
+  // Create a new types
+  app.post("/api/types", function(req, res) {
+    db.types.create(req.body).then(function(dbItem) {
+      res.json(dbItem);
+    }).catch(function(err) {
+      console.log(err);
+      res.json(err);
+    });
+  });
+
+  // Delete an types by id
+  app.delete("/api/types/:id", function(req, res) {
+    db.types.destroy({ where: { id: req.params.id } }).then(function(dbItem) {
+      res.json(dbItem);
+    }).catch(function(err) {
+      console.log(err);
+      res.json(err);
+    });
+  });
+
      // Get all materials
      app.get("/api/materials", function(req, res) {
       db.materials.findAll({}).then(function(dbItems) {
@@ -137,15 +167,5 @@ module.exports = function(app) {
         res.json(err);
       });
     });
-
-       // Get all types
-   app.get("/api/types", function(req, res) {
-    db.types.findAll({}).then(function(dbItems) {
-      res.json(dbItems);
-    }).catch(function(err) {
-      console.log(err);
-      res.json(err);
-    });
-  });
 
 };
