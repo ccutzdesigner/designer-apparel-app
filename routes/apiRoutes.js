@@ -137,6 +137,27 @@ module.exports = function(app) {
         res.json(err);
       });
     });
+    
+    //create Materials
+    app.post("/api/material", function(req, res) {
+      db.materials.create(req.body).then(function(dbItem) {
+        res.json(dbItem);
+      }).catch(function(err) {
+        console.log(err);
+        res.json(err);
+      });
+    });
+
+    // Delete Materials by ID
+    app.delete("/api/materials/:id", function(req, res) {
+      db.materials.destroy({ where: { id: req.params.id } }).then(function(dbItem) {
+        res.json(dbItem);
+      }).catch(function(err) {
+        console.log(err);
+        res.json(err);
+      });
+    });
+  
 
        // Get all types
    app.get("/api/types", function(req, res) {
