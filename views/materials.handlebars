@@ -5,7 +5,7 @@
         <h1>{{title}}</h1>
         <form class="clearfix mb-4" method="POST" action="">
           <div class="form-group">
-            <label for="materials-name">Name:</label>
+            <label for="material-name">Name:</label>
             <input type="text" id="material-name" class="form-control" aria-describedby="material-name" placeholder="Enter material name">
           </div>
           
@@ -13,11 +13,11 @@
         </form>
         <h3>Materials:</h3>
         <ul id="materials-list" class="list-group">
-          {{#each seasons}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="item/{{this.id}}">{{this.name}}</a>
+          {{#each materials}}
+          <li class="list-group-item">
+            {{this.name}}
             <div class="float-right">
-              <button class="btn btn-danger materials-delete" data-id="{{this.id}}">ｘ</button>
+              <button class="btn btn-danger material-delete" data-id="{{this.id}}">ｘ</button>
             </div>
           </li>
           {{/each}}
