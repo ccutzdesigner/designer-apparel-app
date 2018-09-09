@@ -82,7 +82,26 @@ a:hover{
 }
 
 
-@media screen and (max-width: 400px) {
+.admin-icons:hover{
+  border:2px solid #FF8370;
+}
+
+.admin-options{
+  vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    padding:20px;
+}
+
+.caption {
+  display: block;
+}
+
+footer{
+  margin-top:5em;
+}
+
+@media screen and (max-width: 425px) {
 
 .cz-h1{
   font-size:22px;
@@ -92,6 +111,13 @@ a:hover{
   width:80%;
 }
 
+  }
+
+  @media screen and (min-width:400px){
+.logo{
+display:flex;
+align-items: center;
+}
   }
 
 

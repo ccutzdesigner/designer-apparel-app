@@ -11,8 +11,8 @@ var $itemPic = $("#item-pic");
 var $submitBtn = $("#submit");
 var $itemList = $("#item-list");
 
-var $seasonName=$("#season-name");
-var $seasonsSubmit=$("#seasons-submit");
+var $seasonName = $("#season-name");
+var $seasonsSubmit = $("#seasons-submit");
 var $seasonList = $("#season-list");
 
 
@@ -52,13 +52,13 @@ var refreshItems = function () {
 
       var $li = $("<li>")
         .attr({
-          class: "list-group-item",
-          "data-id": item.id
+          class: "list-group-item"
         })
         .append($a);
 
       var $button = $("<button>")
         .addClass("btn btn-danger float-right delete")
+        .attr("data-id", item.id)
         .text("ｘ");
 
       $li.append($button);
@@ -77,10 +77,16 @@ var handleFormSubmit = function (event) {
   event.preventDefault();
 
   var itempic = document.getElementById("item-pic").files[0];
+  //var fileName = document.getElementById("item-pic").files[0].name;
+  if(!itempic){
+    swal("", "Please upload a pic.", "error");
+    return;
+  }
 
   let file = new File([itempic], itempic, { "type": "image/jpg" });
   var reader = new FileReader();
-  
+
+
   var dataURL = "";
   var item = {
     name: $itemName.val().trim(),
@@ -92,24 +98,24 @@ var handleFormSubmit = function (event) {
     price: $itemPrice.val().trim(),
     pic: dataURL
   };
+
+  if (item.name == "") {
+    swal("", "Please enter item name.", "error");
+    return;
+  }
+
   reader.onload = function () {
     dataURL = reader.result;
     var output = document.getElementById('output');
     output.src = dataURL;
-    item.pic=dataURL;
+    item.pic = dataURL;
     itemAPI.saveItem(item).then(function () {
       refreshItems();
     });
   };
-  reader.readAsDataURL(file);
-
-  var fileName = document.getElementById("item-pic").files[0].name;
+    reader.readAsDataURL(file);
 
 
-  if (!(item.name)) {
-    alert("You must enter an item name!");
-    return;
-  }
   $itemName.val("");
   $itemDescription.val("");
   $itemPrice.val("");
@@ -117,7 +123,8 @@ var handleFormSubmit = function (event) {
   $itemMaterial.val("");
   $itemColors.val("");
   $itemSeasons.val("");
-
+$itemPic.val("");
+$("#output").attr("src","");
 
 
 
@@ -133,13 +140,6 @@ var handleDeleteBtnClick = function () {
   });
 };
 
-var deleteSeason = function () {
-  var idToDelete = $(this).attr("data-id");
-
-  seasonAPI.deleteItem(idToDelete).then(function () {
-    refreshItems();
-  });
-};
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
