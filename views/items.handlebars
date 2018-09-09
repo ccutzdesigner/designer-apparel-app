@@ -19,11 +19,11 @@
           <img src="" data-src="holder.js/200x200?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" id="output" width="200" height="200">
           <div class="form-group">
             <label for="item-type">Type</label>
-            <input type="text" class="form-control" id="item-type" aria-describedby="item-type" placeholder="Enter item type">
+            <select class="form-control" id="item-type" aria-describedby="item-type" placeholder="Select type"></select>
           </div>
           <div class="form-group">
             <label for="item-material">Material</label>
-            <input type="text" class="form-control" id="item-material" aria-describedby="item-material" placeholder="Enter item material">
+            <select class="form-control" id="item-material" aria-describedby="item-material" placeholder="Select material"></select>
           </div>
           <div class="form-group">
             <label for="item-colors">Colors</label>
@@ -31,7 +31,7 @@
           </div>
           <div class="form-group">
             <label for="item-seasons">Seasons</label>
-            <input type="text" class="form-control" id="item-seasons" aria-describedby="item-seasons" placeholder="Enter item seasons">
+            <select class="form-control" id="item-seasons" aria-describedby="item-seasons" placeholder="Select season"></select>
           </div>
           <div class="form-group">
             <label for="item-price">Price</label>
@@ -39,22 +39,70 @@
           </div>
           <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
-        <h3>Items:</h3>
         <ul id="item-list" class="list-group">
           {{#each items}}
           <li data-id="{{this.id}}" class="list-group-item">
             <a href="item/{{this.id}}">{{this.name}}</a>
-            <div class="float-right">
-              <button class="btn btn-danger"><i class="fas fa-edit"></i></button>
-              <button class="btn btn-danger delete" data-id="{{this.id}}">ｘ</button>
-            </div>
+              <button class="btn btn-danger float-right delete" data-id="{{this.id}}">ｘ</button>
           </li>
           {{/each}}
         </ul>
+        <a href="/admin">← Back To Admin</a>
       </div>
     </div>
   </div>
 </div>
  <script type="text/javascript" src="/js/members.js"></script>
  <script type="text/javascript" src="/js/index.js"></script>
+ <script type="text/javascript" src="/js/filters.js"></script>
+ <script type="text/javascript" src="/js/lib/sweetalert.min.js"></script>
+<script type="text/javascript">
 
+var $seasonsList = $("#item-seasons");
+var $typesList = $("#item-type");
+var $materialsList = $("#item-material");
+// loadFilters gets new items from the db and repopulates the list
+var loadFilters = function () {
+  API.getSeasons().then(function (data) {
+    var $seasons = data.map(function (season) {
+      var $option = $("<option>")
+        .text(season.name)
+        .val(season.name);
+
+      return $option;
+    });
+
+    $seasonsList.empty();
+    $seasonsList.append($seasons);
+  });
+
+  API.getTypes().then(function (data) {
+    var $types = data.map(function (type) {
+      var $option = $("<option>")
+        .text(type.name)
+        .val(type.name);
+      return $option;
+    });
+
+    $typesList.empty();
+    $typesList.append($types);
+  });
+
+  API.getMaterials().then(function (data) {
+    var $materials = data.map(function (material) {
+      var $option = $("<option>")
+        .text(material.name)
+        .val(material.name);
+      return $option;
+    });
+
+    $materialsList.empty();
+    $materialsList.append($materials);
+  });
+};
+
+$(document).ready(function(){
+    loadFilters();
+});
+
+</script>

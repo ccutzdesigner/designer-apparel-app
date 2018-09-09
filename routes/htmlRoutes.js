@@ -11,11 +11,13 @@ module.exports = function (app) {
   app.get("/items", function (req, res) {
     db.items.findAll({}).then(function (dbItems) {
       //console.log(dbItems);
-      if (req.user.admin) {
+      if (req.user) {
         res.render("items", {
           title: "Items",
           items: dbItems
         });
+      }else{
+        res.redirect("/login");
       }
      
     });
@@ -30,6 +32,8 @@ module.exports = function (app) {
             title: "Seasons",
             seasons: dbItems
           });
+        }else{
+          res.redirect("/login");
         }
        
       });
@@ -44,6 +48,8 @@ module.exports = function (app) {
             title: "Materials",
             materials: dbItems
           });
+        }else{
+          res.redirect("/login");
         }
        
       });
@@ -54,9 +60,11 @@ module.exports = function (app) {
         //console.log(dbItems);
         if (req.user) {
           res.render("types", {
-            title: "types",
+            title: "Types",
             types: dbItems
           });
+        }else{
+          res.redirect("/login");
         }
        
       });
@@ -96,10 +104,19 @@ module.exports = function (app) {
     });
   });
 
+    // Load admin
+    app.get("/admin", function (req, res) {
+      if (req.user) {
+        res.render("admin", {});
+      }else{
+          res.redirect("/login");
+        }
+    });
+
     // Load index page
     app.get("/all", function (req, res) {
       db.items.findAll().then(function (dbItems) {
-        res.render("all", {
+        res.render("all",{
           items: dbItems
         });
       });
@@ -108,7 +125,7 @@ module.exports = function (app) {
     // Load all items page
     app.get("/season/:season", function (req, res) {
       db.items.findAll({ where: { season: req.params.season } }).then(function (dbItems) {
-        res.render("season", {
+        res.render("all", {
           items: dbItems
         });
       });

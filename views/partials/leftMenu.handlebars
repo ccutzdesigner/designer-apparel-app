@@ -1,20 +1,11 @@
-<div>
-    <p>Seasons</p>
-    <ul>
-        {{#each seasons}}
-        <li>{{this.name}}</li>
-        {{/each}}
-    </ul>
-    <p>Materials</p>
-    <ul>
-        {{#each materials}}
-        <li>{{this.name}}</li>
-        {{/each}}
-    </ul>
-    <p>Types</p>
-    <ul>
-        {{#each types}}
-        <li>{{this.name}}</li>
-        {{/each}}
-    </ul>
-</div>
+<div class="col-3">      
+          <a href="/all" class="nav-link">All</a> 
+          <p>Seasons</p>
+          <ul id="seasons-list" class="nav flex-column" role="tablist">
+            
+          </ul>
+          <p>Types</p>
+          <ul id="types-list" class="nav flex-column" role="tablist"></ul>
+          <p>Materials</p>
+          <ul id="materials-list" class="nav flex-column" role="tablist"></ul>
+        </div>
