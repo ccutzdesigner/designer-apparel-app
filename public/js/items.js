@@ -47,7 +47,7 @@ var refreshItems = function () {
   itemAPI.getItems().then(function (data) {
     var $items = data.map(function (item) {
       var $a = $("<a>")
-        .text(item.name)
+        .html("<img src="+item.pic+" width='150' height='150'><span class='caption'>"+item.name+"</span>")
         .attr("href", "/item/" + item.id);
 
       var $li = $("<li>")
@@ -57,7 +57,7 @@ var refreshItems = function () {
         .append($a);
 
       var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
+        .addClass("cz-btn float-right delete")
         .attr("data-id", item.id)
         .text("ｘ");
 

@@ -7,7 +7,7 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
 
-  // Load index page
+  // Load add items page
   app.get("/items", function (req, res) {
     db.items.findAll({}).then(function (dbItems) {
       //console.log(dbItems);
@@ -104,7 +104,7 @@ module.exports = function (app) {
     });
   });
 
-    // Load admin
+    // Load admin page
     app.get("/admin", function (req, res) {
       if (req.user) {
         res.render("admin", {});
@@ -113,7 +113,7 @@ module.exports = function (app) {
         }
     });
 
-    // Load index page
+    // Load all items page
     app.get("/all", function (req, res) {
       db.items.findAll().then(function (dbItems) {
         res.render("all",{
@@ -122,7 +122,7 @@ module.exports = function (app) {
       });
     });
 
-    // Load all items page
+    // Load season filtered items page
     app.get("/season/:season", function (req, res) {
       db.items.findAll({ where: { season: req.params.season } }).then(function (dbItems) {
         res.render("all", {
@@ -140,6 +140,16 @@ module.exports = function (app) {
       });
     });
   });
+
+    // Load message page and pass in an item by id
+    app.get("/message/:id", function (req, res) {
+      db.items.findOne({ where: { id: req.params.id } }).then(function (dbItem) {
+        
+        res.render("message", {
+          item: dbItem 
+        });
+      });
+    });
 
   // Render 404 page for any unmatched routes
   app.get("*", function (req, res) {

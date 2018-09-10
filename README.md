@@ -6,17 +6,14 @@ Users can share to facebook. Designer will have their admin page to upload pics 
 ## Environment: 
 
 * Github for source code control
-* Github for source code control
 * Heroku
 * NodeJS
 * ExpressJS
 * PassportJS
 * MySQL
 * SequelizeJS
-* Nodemailer package
-* Image-watermark package
 * Jquery
+* Jquery Zoom
 * Handlebars
-* firebase storage
 * Bootstrap CSS
-* sweet alerts css
+* Sweet Alerts CSS

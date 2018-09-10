@@ -1,0 +1,36 @@
+<div class="container content">
+    <div class="row">
+        <div class="col-md-6">
+                <div class="form-group">
+                    <img src="{{item.pic}}" width="500" height="500">
+                    <input type="hidden" value="{{item.id}}" id="item-id">
+                </div>
+        </div>
+        <div class="col-md-6">
+            <h2>Contact</h2>
+
+            <form id="contact-form">
+
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="John Smith">
+                </div>
+
+                
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="john.smith@gmail.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="mesg">Message</label>
+                    <textarea rows="10" cols="100" class="form-control" id="mesg"></textarea>
+                </div>
+                <input type="submit" class="cz-btn" aria-pressed="false">
+
+            </form>
+        </div>
+    </div>
+</div>
