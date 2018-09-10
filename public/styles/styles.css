@@ -38,11 +38,11 @@ background-color:#ffff;
   color:#FF8370;
 }
 
-a{
+a, .navbar .nav-link{
   color:#FF8370;
 }
 
-a:hover{
+a:hover,.navbar .nav-link:hover{
   color:#8D483E;
   text-decoration: none;
 }
@@ -57,8 +57,43 @@ a:hover{
   color:#FF8370;
 }
 
-.navbar-dark .navbar-toggler-icon{
-  background-image:url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 131, 112, 2)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E")
+.cz-btn{
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  background-color: #FF8370;
+  border-color: #FF8370;
+  color:#ffffff;
+}
+
+.cz-btn:hover,  .cz-btn:focus, .cz-btn .focus,
+.cz-btn:active,  .cz-btn .active,
+.cz-btn .active:focus, .cz-btn:active:focus{
+  background-color: #ffffff;
+  border-color: #FF8370;
+  color:#FF8370;
+}
+
+.navbar-light .navbar-toggler {
+  color: #FF8370;
+  border-color:#FF8370;
+}
+
+.navbar-light .navbar-toggler-icon{
+  background-image:url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 131, 112, 2)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  border-color:#FF8370;
 }
 
 .social a {
@@ -99,6 +134,14 @@ a:hover{
 
 footer{
   margin-top:5em;
+}
+
+.dropdown-item{
+  color:#FF8370;
+}
+.dropdown-item:hover{
+  color:#ffffff;
+  background-color: #FF8370;
 }
 
 @media screen and (max-width: 425px) {

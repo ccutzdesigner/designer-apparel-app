@@ -28,7 +28,7 @@
 
   <!-- Custom styles for this template -->
   <link href="/styles/styles.css" rel="stylesheet">
-    <!-- Bootstrap core JavaScript
+  <!-- Bootstrap core JavaScript
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
   <script type="text/javascript" src="/js/lib/jquery.js"></script>
@@ -39,36 +39,33 @@
 
 <body>
   <header>
+    <nav class="container navbar navbar-expand-lg navbar-light">
+      <a href="/" class="navbar-brand logo">
+        <img src="/images/cz-label-logo2.png" width="100" height="100">&nbsp;&nbsp;
+        <h1 class="cz-h1"> Ccutz Label</h1>
+      </a>
 
-    <div class="navbar navbar-dark cz-light shadow-sm">
-      <div class="container d-flex">
-        <a href="/" class="navbar-brand logo">
-          <img src="/images/cz-label-logo2.png" width="100" height="100">&nbsp;&nbsp;
-          <h1 class="cz-h1"> Ccutz Label</h1>
-        </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <div class="float-right">
-          <a href="/login" id="login-id"><i class="fas fa-user mr-auto text-coral"></i></a>
-          <span class="member-name"></span>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader"
-            aria-expanded="false" aria-label="Toggle navigation">
-
-            <span class="navbar-toggler-icon"></span>
-
-          </button>
-        </div>
-      </div>
-
-    </div>
-    <div class="collapse cz-light" id="navbarHeader">
-      <div  class="container">
-        <ul id="menu">
+      <div class="float-right navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown ml-auto">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user text-coral"></i><span class="member-name"></span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="menu">
+              <a class="dropdown-item" href="/login" id="login-id">Login</a>
+            </div>
+          </li>
         </ul>
-        </div>
       </div>
-    </div>
-    </div>
+    </nav>
   </header>
+
 
   {{{body}}}
 

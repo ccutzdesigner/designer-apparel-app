@@ -4,11 +4,12 @@ $(document).ready(function() {
   $.get("/api/user_data").then(function(data) {
     if(data.firstName!=undefined){
       if(data.admin){
-        $("#menu").append("<li><a href='/'>Home</a></li>");
-        $("#menu").append("<li><a href='/admin'>Admin</a></li>");
+
+        $("#menu").append("<a class='dropdown-item' href='/'>Home</a>");
+        $("#menu").append("<a class='dropdown-item' href='/admin'>Admin</a>");
       }
-      $("#menu").append("<li><a href='/logout'>Logout</a></li>");
-      $(".member-name").html(data.firstName);
+      $("#menu").append("<a class='dropdown-item' href='/logout'>Logout</a>");
+      $(".member-name").html(" "+data.firstName+" "+data.lastName);
       $("#login-id").hide();
     }
   });

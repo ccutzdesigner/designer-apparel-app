@@ -7,9 +7,6 @@
 
 <body>
 
-
-  <link rel="stylesheet" href="gurksstyle.css">
-
   <main role="main">
 
     <section class="jumbotron cz-light">
@@ -43,8 +40,9 @@
     </section>
 
     <section class="container text-center">
+      {{#if items}}
       <h1 class="cz-h1">Collection</h1>
-
+      {{/if}}
 
       <div class="row">
         {{#each items}}
@@ -69,7 +67,7 @@
     </section>
 
   </main>
-  <script type="text/javascript" src="/js/index.js"></script>
+  <script type="text/javascript" src="/js/items.js"></script>
   <script type="text/javascript" src="/js/members.js"></script>
 
 </body>

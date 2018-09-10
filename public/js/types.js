@@ -44,7 +44,7 @@ var refreshtypes = function () {
         
 
       var $button = $("<button>")
-        .addClass("btn btn-danger float-right types-delete")
+        .addClass("cz-btn float-right types-delete")
         .text("ｘ");
 
       $li.append($button);

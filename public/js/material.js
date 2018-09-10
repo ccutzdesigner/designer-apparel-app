@@ -44,7 +44,7 @@ var refreshMaterials = function () {
         .text(material.name);
 
       var $button = $("<button>")
-        .addClass("btn btn-danger float-right material-delete")
+        .addClass("cz-btn float-right material-delete")
         .attr("data-id",material.id)
         .text("ｘ");
 
