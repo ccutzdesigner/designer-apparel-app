@@ -1,7 +1,7 @@
 <div id="home">
   <div class="container">
     <div class="row">
-      <div class="col-8 offset-2">
+      <div class="col-12 col-md-6">
         <h1>{{title}}</h1>
         <form class="clearfix mb-4" method="POST" action="" enctype="multipart/form-data">
           <div class="form-group">
@@ -38,6 +38,9 @@
           </div>
           <button id="submit" class="cz-btn float-right">Submit</button>
         </form>
+        <a href="/admin">← Back To Admin</a>
+        </div>
+        <div class="col-12 col-md-6">
         <ul id="item-list" class="list-group">
           {{#each items}}
           <li data-id="{{this.id}}" class="list-group-item">
@@ -49,7 +52,7 @@
           </li>
           {{/each}}
         </ul>
-        <a href="/admin">← Back To Admin</a>
+        
       </div>
     </div>
   </div>

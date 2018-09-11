@@ -2,6 +2,7 @@ var db = require("../models");
 // Requiring path to so we can use relative routes to our HTML files
 var path = require("path");
 var Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -138,6 +139,24 @@ module.exports = function (app) {
       });
     });
   });
+
+    // Load search text filtered items page
+    app.get("/search/:text", function (req, res) {
+      db.items.findAll({ where:{
+        $or: [
+          {season: req.params.text},
+          {type:req.params.text},
+          {material:req.params.text},
+          {name:{$like:"%"+ req.params.text+"%"}},
+          {color:{$like:"%"+ req.params.text+"%"}},
+          {description: {$like:"%"+req.params.text+"%"}}
+        ] }
+      }).then(function (dbItems) {
+        res.render("all", {
+          items: dbItems
+        });
+      });
+    });
 
   // Load season filtered items page
   app.get("/season/:season", function (req, res) {

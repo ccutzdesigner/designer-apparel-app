@@ -1,7 +1,7 @@
 <div id="home">
   <div class="container">
     <div class="row">
-      <div class="col-8 offset-2">
+      <div class="col-12 col-md-6">
         <h1>{{title}}</h1>
         <form class="clearfix mb-4" method="POST" action="">
           <div class="form-group">
@@ -11,6 +11,9 @@
           
           <button id="types-submit" class="cz-btn float-right">Submit</button>
         </form>
+        <a href="/admin">← Back To Admin</a>
+        </div>
+        <div class="col-md-6 col-12">
         <ul id="types-list" class="list-group">
           {{#each types}}
           <li data-id="{{this.id}}" class="list-group-item">
@@ -21,7 +24,7 @@
           </li>
           {{/each}}
         </ul>
-        <a href="/admin">← Back To Admin</a>
+        
       </div>
     </div>
   </div>

@@ -10,8 +10,6 @@ function liked(itemId){
             $("#alike"+itemId).attr("onclick","unliked("+itemId+")");
             $("#heart"+itemId).removeAttr("class");
             $("#heart"+itemId).attr("class","fas fa-heart");
-
-
     });
 }
 
