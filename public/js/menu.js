@@ -50,3 +50,11 @@ var loadFilters = function () {
 $(document).ready(function(){
     loadFilters();
 });
+
+var searchItems= function(f){
+  var $text=$("#search-text").val().trim();
+  if($text!=""){
+    f.action="/search/"+$text;
+    f.submit();
+  }
+}
