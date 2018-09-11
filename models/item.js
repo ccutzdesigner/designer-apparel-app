@@ -29,6 +29,10 @@ module.exports = function(sequelize, DataTypes) {
     },
    pic:{
       type:DataTypes.BLOB('long')
+    },
+    likes:{
+      type:DataTypes.INTEGER,
+      defaultValue:0
     }
   });
   return Item;

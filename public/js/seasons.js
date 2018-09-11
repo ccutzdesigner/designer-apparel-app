@@ -34,16 +34,13 @@ var seasonAPI = {
 var refreshSeasons = function () {
   seasonAPI.getSeasons().then(function (data) {
     var $seasons = data.map(function (season) {
-      var $a = $("<a>")
-        .text(season.name)
-        .attr("href", "/season/" + season.id);
 
       var $li = $("<li>")
         .attr({
           class: "list-group-item",
           "data-id": season.id
-        })
-        .append($a);
+        }).text(season.name);
+        
 
       var $button = $("<button>")
         .addClass("cz-btn float-right season-delete")

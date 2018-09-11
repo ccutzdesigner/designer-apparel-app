@@ -7,46 +7,14 @@
 
 <body>
   <main role="main">
-
-    <section class="container text-center">
-      <h1 class="cz-h1">Collection</h1>
-      <form class="form-inline mt-2 mt-md-0">
-        <input class="form-control mr-sm-2 search-txt" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
-      </form>
-
-      <div class="row">
-
-        {{> leftMenu}}
-        <div class="col-md-10 col-sm-9 col-8">
-          <div class="row">
-            {{#each items}}
-            <div class="col-md-4 col-sm-6 col-8">
-            <div class="card mb-4 shadow-sm">
-              <a href="/item/{{this.id}}"><img class="card-img-top" src="{{this.pic}}" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
-                alt="Card image cap"></a>
-              <div class="card-body">
-                <p class="card-text"><a href="/item/{{this.id}}">{{this.name}}</a></p>
-                <div class=" justify-content-between align-items-center">
-                  <small class="text-muted">{{this.type}}</small>
-                  <small class="text-muted">{{this.material}}</small>
-                  <small class="text-muted">{{this.season}}</small>
-                  <small class="text-muted"><a href="/message/{{this.id}}"><i class="fas fa-envelope text-coral"></i></a></small>
-                </div>
-              </div>
-            </div>
-</div>
-            {{/each}}
-          </div>
-        </div>
-      </div>
-    </section>
+{{> leftMenu}}
+{{> displayItems}}
 
   </main>
   <script type="text/javascript" src="/js/members.js"></script>
   <script type="text/javascript" src="/js/filters.js"></script>
   <script type="text/javascript" src="/js/menu.js"></script>
-
+<script type="text/javascript" src="/js/like.js"></script>
 
 </body>
 

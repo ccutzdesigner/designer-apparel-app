@@ -1,17 +1,14 @@
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-
-<div class="container">
-  <div class="row">
-    <div class="col-8 offset-2">
-      <div class="card mt-4">
-        <div class="card-body">
-
+<div class="container content">
+    <div class="row">
+        <div class="col-md-6">
+                <div class="form-group">
+  <img src="{{item.pic}}" class="pic-500" id="pic1" alt="pic{{item.id}}">
+                </div>
+        </div>
+        <div class="col-md-6">
           <h5 class="card-title">{{item.name}}</h5>
-<div id="template">
-  <img src="{{item.pic}}" id="pic1" width="200" height="200" alt="pic{{item.id}}">
-</div>
-          
-          <p>
+          <div>
+           <p>
             <strong>Description:</strong> {{item.description}}
           </p>
           <p>
@@ -31,8 +28,7 @@
           </p>
             <a href="/all">← Back To Home</a>
         </div>
-      </div>
+                
+        </div>
     </div>
-  </div>
 </div>
-

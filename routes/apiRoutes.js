@@ -188,5 +188,14 @@ module.exports = function(app) {
       });
     });
   
+      // Create a new message
+  app.post("/api/message", function(req, res) {
+    db.messages.create(req.body).then(function(dbItem) {
+      res.json(dbItem);
+    }).catch(function(err) {
+      console.log(err);
+      res.json(err);
+    });
+  });
 
 };

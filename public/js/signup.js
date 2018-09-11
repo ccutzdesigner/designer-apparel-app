@@ -17,6 +17,7 @@ var lastName=$("input#last-name");
     };
 
     if ( !userData.firstName || !userData.lastName || !userData.email || !userData.password) {
+      swal("", "All fields are required.", "error");
       return;
     }
     // If we have an email and password, run the signUpUser function
@@ -42,6 +43,7 @@ var lastName=$("input#last-name");
   }
 
   function handleLoginErr(err) {
+    
     $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
   }

@@ -1,0 +1,26 @@
+  <section class="container text-center">
+      {{#if items}}
+      <h1 class="cz-h1">Collection</h1>
+      {{/if}}
+
+      <div class="row">
+        {{#each items}}
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <a href="item/{{this.id}}"><img class="card-img-top" src="{{this.pic}}" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
+              alt="item pic"></a>
+            <div class="card-body">
+              <p class="card-text">{{this.name}} <a onclick="liked({{this.id}})" id="alike{{this.id}}"><i class="far fa-heart" id="heart{{this.id}}"></i></a></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">{{this.type}}</small>
+                <small class="text-muted">{{this.material}}</small>
+                <small class="text-muted">{{this.color}}</small>
+                <small class="text-muted">{{this.season}}</small>
+                <small class="text-muted"><a href="/message/{{this.id}}"><i class="fas fa-envelope text-coral"></i></a></small>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </section>
