@@ -3,8 +3,7 @@ $(document).ready(function() {
   var loginForm = $("form.login");
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
-var firstName=$("input#first-name");
-var lastName=$("input#last-name");
+
 
   // When the form is submitted, we validate there's an email and password entered
   loginForm.on("submit", function(event) {
@@ -15,6 +14,7 @@ var lastName=$("input#last-name");
     };
 
     if (!userData.email || !userData.password ) {
+      swal("", "All fields are required.", "error");
       return;
     }
 
@@ -32,8 +32,8 @@ var lastName=$("input#last-name");
     }).then(function(data) {
       window.location.replace(data);
       // If there's an error, log the error
-    }).catch(function(err) {
-      console.log(err);
+    }).error(function(err) {
+      swal("", "Email or password is incorrect", "error");
     });
   }
 

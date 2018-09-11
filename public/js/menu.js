@@ -8,15 +8,10 @@ var loadFilters = function () {
     var $seasons = data.map(function (season) {
       var $a = $("<a>")
         .text(season.name)
-        .addClass("nav-link")
+        .addClass("dropdown-item")
         .attr("href", "/season/" + season.name);
 
-      var $li = $("<li>")
-        .attr({
-          class: "nav-item"
-        })
-        .append($a);
-      return $li;
+      return $a;
     });
 
     $seasonsList.empty();
@@ -27,15 +22,10 @@ var loadFilters = function () {
     var $types = data.map(function (type) {
       var $a = $("<a>")
         .text(type.name)
-        .addClass("nav-link")
+        .addClass("dropdown-item")
         .attr("href", "/type/" + type.name);
 
-      var $li = $("<li>")
-        .attr({
-          class: "nav-item"
-        })
-        .append($a);
-      return $li;
+      return $a;
     });
 
     $typesList.empty();
@@ -46,15 +36,10 @@ var loadFilters = function () {
     var $materials = data.map(function (material) {
       var $a = $("<a>")
         .text(material.name)
-        .addClass("nav-link")
+        .addClass("dropdown-item")
         .attr("href", "/material/" + material.name);
 
-      var $li = $("<li>")
-        .attr({
-          class: "nav-item"
-        })
-        .append($a);
-      return $li;
+      return $a;
     });
 
     $materialsList.empty();

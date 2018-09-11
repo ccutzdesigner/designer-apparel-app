@@ -11,10 +11,6 @@ var $itemPic = $("#item-pic");
 var $submitBtn = $("#submit");
 var $itemList = $("#item-list");
 
-var $seasonName = $("#season-name");
-var $seasonsSubmit = $("#seasons-submit");
-var $seasonList = $("#season-list");
-
 
 // The API object contains methods for each kind of request we'll make
 var itemAPI = {
@@ -106,8 +102,6 @@ var handleFormSubmit = function (event) {
 
   reader.onload = function () {
     dataURL = reader.result;
-    var output = document.getElementById('output');
-    output.src = dataURL;
     item.pic = dataURL;
     itemAPI.saveItem(item).then(function () {
       refreshItems();
@@ -123,11 +117,7 @@ var handleFormSubmit = function (event) {
   $itemMaterial.val("");
   $itemColors.val("");
   $itemSeasons.val("");
-$itemPic.val("");
-$("#output").attr("src","");
-
-
-
+  $itemPic.val("");
 };
 
 // handleDeleteBtnClick is called when an item's delete button is clicked

@@ -17,7 +17,13 @@ form.login {
 }
 
  .cz-light{
-  background-color:#ffff;
+  background-color:#003366;
+  color:#FF8370;
+ }
+
+ .cz-dark{
+  background-color:#FF8370;
+  color:#003366;
  }
 
 .list-group-item {
@@ -31,19 +37,38 @@ header{
 }
 body{
 /*background-color: #f8f9fa;*/
-background-color:#ffff;
+background-color:#003366;
+color:#FF8370;
 }
 
 .text-coral{
   color:#FF8370;
 }
 
-a, .navbar .nav-link{
+.navbar-light .navbar-brand{
+  color:#003366;
+}
+
+#searchbar .nav-link{
+  color:#003366;
+}
+
+#searchbar .nav-link:hover{
+  color:#ffffff;
+  text-decoration: none;
+}
+
+a, #navbarCollapse .nav-link{
   color:#FF8370;
 }
 
-a:hover,.navbar .nav-link:hover{
-  color:#8D483E;
+.message-email:hover{
+  color:#003366;
+  text-decoration: none;
+}
+
+a:hover, #navbarCollapse .nav-link:hover{
+  color:#ffffff;
   text-decoration: none;
 }
 
@@ -96,6 +121,16 @@ a:hover,.navbar .nav-link:hover{
   border-color:#FF8370;
 }
 
+#searchbar .navbar-toggler {
+  color: #003366;
+  border-color:#003366;
+}
+
+#searchbar .navbar-toggler-icon{
+  background-image:url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(5, 51, 102, 2)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  border-color:#003366;
+}
+
 .social a {
   font-size: 32px;
   margin: 0 10px;
@@ -110,12 +145,23 @@ a:hover,.navbar .nav-link:hover{
 }
 
 .btn-outline-success:hover {
-  color:#8D483E;
+  color:#ffffff;
   background-color: transparent;
   background-image: none;
-  border-color: #8D483E;
+  border-color: #ffffff;
 }
 
+.navbar-light .navbar-nav .nav-link{
+  color:#FF8370;
+}
+
+.navbar-light .navbar-nav .nav-link:hover{
+  color:#ffffff;
+}
+
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link{
+color:#ffffff;
+}
 
 .admin-icons:hover{
   border:2px solid #FF8370;
@@ -132,6 +178,10 @@ a:hover,.navbar .nav-link:hover{
   display: block;
 }
 
+.caption:hover {
+  color:#003366;
+}
+
 footer{
   margin-top:5em;
 }
@@ -144,6 +194,16 @@ footer{
   background-color: #FF8370;
 }
 
+.form-group.required .control-label:after {
+  content:"*";
+  color:red;
+}
+
+.pic-500{
+  width:500px;
+  height: 500px;
+}
+
 @media screen and (max-width: 425px) {
 
 .cz-h1{
@@ -154,6 +214,11 @@ footer{
   width:80%;
 }
 
+.pic-500{
+  width:300px;
+  height: 300px;
+}
+
   }
 
   @media screen and (min-width:400px){
@@ -161,6 +226,7 @@ footer{
 display:flex;
 align-items: center;
 }
+
   }
 
 

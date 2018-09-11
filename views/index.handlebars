@@ -10,11 +10,10 @@
   <main role="main">
 
     <section class="jumbotron cz-light">
-
+{{> leftMenu}}
       <div class="container text-center">
         <div class="row">
           <div class="col-md-4 text-coral">
-            <H2>About</H2>
             <P>It is a long established fact that a reader will be distracted by the readable content of a page when
               looking
               at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of
@@ -39,36 +38,13 @@
 
     </section>
 
-    <section class="container text-center">
-      {{#if items}}
-      <h1 class="cz-h1">Collection</h1>
-      {{/if}}
-
-      <div class="row">
-        {{#each items}}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{this.pic}}" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
-              alt="item pic">
-            <div class="card-body">
-              <p class="card-text"><a href="item/{{this.id}}">{{this.name}}</a></p>
-              <p class="card-text">{{this.description}}</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <small class="text-muted">{{this.type}}</small>
-                <small class="text-muted">{{this.material}}</small>
-                <small class="text-muted">{{this.color}}</small>
-                <small class="text-muted">{{this.season}}</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        {{/each}}
-      </div>
-    </section>
+  {{> displayItems}}
 
   </main>
-  <script type="text/javascript" src="/js/items.js"></script>
   <script type="text/javascript" src="/js/members.js"></script>
+  <script type="text/javascript" src="/js/filters.js"></script>
+  <script type="text/javascript" src="/js/menu.js"></script>
+  <script type="text/javascript" src="/js/like.js"></script>
 
 </body>
 

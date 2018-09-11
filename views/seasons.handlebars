@@ -9,12 +9,12 @@
             <input type="text" id="season-name" class="form-control" aria-describedby="season-name" placeholder="Enter season name">
           </div>
           
-          <button id="seasons-submit" class="btn btn-primary float-right">Submit</button>
+          <button id="seasons-submit" class="cz-btn float-right">Submit</button>
         </form>
         <ul id="season-list" class="list-group">
           {{#each seasons}}
           <li data-id="{{this.id}}" class="list-group-item">
-            <a href="item/{{this.id}}">{{this.name}}</a>
+            {{this.name}}
             <div class="float-right">
               <button class="cz-btn season-delete" data-id="{{this.id}}">ｘ</button>
             </div>
