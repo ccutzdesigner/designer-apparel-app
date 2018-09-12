@@ -2,8 +2,6 @@ var db = require("../models");
 // Requiring path to so we can use relative routes to our HTML files
 var path = require("path");
 var Sequelize = require("sequelize");
-const shareFacebook = require('share-facebook');
-const fbappid="389729804894818";
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
