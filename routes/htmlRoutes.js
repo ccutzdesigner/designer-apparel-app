@@ -176,6 +176,13 @@ app.get("/material/:materialName", function (req, res) {
   });
 });
 
+  app.get("/type/:typeName", function (req, res) {
+    db.items.findAll({ where: { type: req.params.typeName } }).then(function (dbItems) {
+      res.render("all", {
+        items: dbItems
+      });
+    });
+  });
 
   // Load item page and pass in an item by id
   app.get("/item/:id", function (req, res) {
