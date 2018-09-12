@@ -235,18 +235,6 @@ app.get("/material/:materialName", function (req, res) {
         });
   });
 
-  // Share to fb page and pass in an item by id
-  app.get("/fb/:id", function (req, res) {
-    db.items.findOne({ where: { id: req.params.id } }).then(function (dbItem) {
-      shareFacebook({
-        quote: dbItem.name+dbItem.description+" "+"#"+dbItem.type,
-        href: 'https://ccutz.herokuapp.com/item/'+dbItem.id,
-        redirect_uri: 'https://ccutz.herokuapp.com',
-        app_id: fbappid
-      });
-      res.status(200).end();
-    });
-  });
 
   // Render 404 page for any unmatched routes
   app.get("*", function (req, res) {
