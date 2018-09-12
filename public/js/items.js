@@ -43,7 +43,7 @@ var refreshItems = function () {
   itemAPI.getItems().then(function (data) {
     var $items = data.map(function (item) {
       var $a = $("<a>")
-        .html("<img src="+item.pic+" width='150' height='150'><span class='caption'>"+item.name+"</span>")
+        .html("<img src='"+item.pic+"' width='150' height='150'><span class='caption'>"+item.name+"</span>")
         .attr("href", "/item/" + item.id);
 
       var $li = $("<li>")
