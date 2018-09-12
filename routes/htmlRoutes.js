@@ -167,6 +167,15 @@ module.exports = function (app) {
     });
   });
 
+// Load material filtered items page
+app.get("/material/:materialName", function (req, res) {
+  db.items.findAll({ where: { material: req.params.materialName } }).then(function (dbItems) {
+    res.render("all", {
+      items: dbItems
+    });
+  });
+});
+
   app.get("/type/:typeName", function (req, res) {
     db.items.findAll({ where: { type: req.params.typeName } }).then(function (dbItems) {
       res.render("all", {
