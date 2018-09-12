@@ -1,3 +1,17 @@
+<meta property="og:url"           content="https://ccutz.herokuapp.com/item/{{item.id}}" />
+  <meta property="og:type"          content="CCutz Label" />
+  <meta property="og:title"         content="CCutz Label Product" />
+  <meta property="og:description"   content="{{item.name}}" />
+  <meta property="og:image"         content="https://ccutz.herokuapp.com/favicon.ico" />
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1&appId=389729804894818&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <div class="container content">
     <div class="row">
         <div class="col-md-6">
@@ -32,3 +46,4 @@
         </div>
     </div>
 </div>
+<div class="fb-share-button" data-href="https://ccutz.herokuapp.com/item/{{item.id}}" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fccutz.herokuapp.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
