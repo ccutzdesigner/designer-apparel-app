@@ -167,6 +167,16 @@ module.exports = function (app) {
     });
   });
 
+// Load material filtered items page
+app.get("/material/:materialName", function (req, res) {
+  db.items.findAll({ where: { material: req.params.materialName } }).then(function (dbItems) {
+    res.render("all", {
+      items: dbItems
+    });
+  });
+});
+
+
   // Load item page and pass in an item by id
   app.get("/item/:id", function (req, res) {
     db.items.findOne({ where: { id: req.params.id } }).then(function (dbItem) {
