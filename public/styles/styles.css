@@ -1,7 +1,11 @@
 video {
-  width: 100%    !important;
-  height: auto   !important;
+    width: 95%;
+    height: auto !important;
+    border: solid 5px;
+    border-radius: 10px;
+  
 }
+
 
 .social a:hover {
     opacity: 0.7;
