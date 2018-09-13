@@ -66,15 +66,15 @@ var saveMaterial = function (event) {
     name: $materialsName.val().trim()
   };
 
+  if (!(material.name)) {
+    swal("","You must enter the fabric name","error");
+    return;
+  }
+
   materialAPI.saveMaterial(material).then(function () {
     refreshMaterials();
   });
-
-
-  if (!(material.name)) {
-    alert("You must enter a name!");
-    return;
-  }
+ 
   $materialsName.val("");
 };
 

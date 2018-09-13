@@ -65,15 +65,15 @@ var savetypes = function (event) {
     name: $typesName.val().trim()
   };
 
+  if (!(types.name)) {
+    swal("","You must enter a type name!","error");
+    return;
+  }
+
   typesAPI.savetypes(types).then(function () {
     refreshtypes();
   });
 
-
-  if (!(types.name)) {
-    alert("You must enter a name!");
-    return;
-  }
   $typesName.val("");
 };
 

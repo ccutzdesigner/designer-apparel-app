@@ -32,6 +32,7 @@ form.login {
 
 .list-group-item {
   line-height: 2.5;
+  color:#003366;
 }
 .jumbotron{
   padding:0px;
@@ -104,7 +105,7 @@ a:hover, #navbarCollapse .nav-link:hover{
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   background-color: #FFACA0;
   border-color: #FFACA0;
-  color:#ffffff;
+  color:#003366;
 }
 
 .cz-btn:hover,  .cz-btn:focus, .cz-btn .focus,
@@ -112,7 +113,7 @@ a:hover, #navbarCollapse .nav-link:hover{
 .cz-btn .active:focus, .cz-btn:active:focus{
   background-color: #ffffff;
   border-color: #FFACA0;
-  color:#FFACA0;
+  color:#003366;
 }
 
 .navbar-light .navbar-toggler {
@@ -139,20 +140,6 @@ a:hover, #navbarCollapse .nav-link:hover{
   font-size: 32px;
   margin: 0 10px;
   color: #FFACA0;
-}
-
-.btn-outline-success {
-    color: #FFACA0;
-    background-color: transparent;
-    background-image: none;
-    border-color: #FFACA0;
-}
-
-.btn-outline-success:hover {
-  color:#ffffff;
-  background-color: transparent;
-  background-image: none;
-  border-color: #ffffff;
 }
 
 .navbar-light .navbar-nav .nav-link{
@@ -182,6 +169,9 @@ color:#ffffff;
   display: block;
 }
 
+.card-text,.card-body,.card-header,.text-muted{
+  color:#003366!important;
+}
 
 .caption:hover {
   color:#003366;
@@ -192,10 +182,10 @@ footer{
 }
 
 .dropdown-item{
-  color:#FFACA0;
+  color:#003366;
 }
 .dropdown-item:hover{
-  color:#ffffff;
+  color:#003366;
   background-color: #FFACA0;
 }
 
