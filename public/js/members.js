@@ -8,6 +8,8 @@ $(document).ready(function() {
         $("#menu").append("<a class='dropdown-item' href='/'>Home</a>");
         $("#menu").append("<a class='dropdown-item' href='/admin'>Admin</a>");
       }
+      sessionStorage.setItem("email",data.email);
+      $("#menu").append("<a class='dropdown-item' href='/wishlist'>WishList</a>");
       $("#menu").append("<a class='dropdown-item' href='/logout'>Logout</a>");
       $(".member-name").html(" "+data.firstName+" "+data.lastName);
       $("#login-id").hide();

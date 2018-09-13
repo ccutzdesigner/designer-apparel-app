@@ -10,7 +10,11 @@ module.exports = function (app) {
 
   // Load add items page
   app.get("/items", function (req, res) {
-    db.items.findAll({}).then(function (dbItems) {
+    db.items.findAll({
+      order: [
+        ['createdAt', 'DESC']
+      ]
+    }).then(function (dbItems) {
       //console.log(dbItems);
       if (req.user) {
         res.render("items", {
@@ -24,9 +28,13 @@ module.exports = function (app) {
     });
   });
 
-   // Load 
-   app.get("/messages", function (req, res) {
-    db.messages.findAll({}).then(function (dbItems) {
+  // Load 
+  app.get("/messages", function (req, res) {
+    db.messages.findAll({
+      order: [
+        ['createdAt', 'DESC']
+      ]
+    }).then(function (dbItems) {
       //console.log(dbItems);
       if (req.user) {
         res.render("messages", {
@@ -62,7 +70,7 @@ module.exports = function (app) {
       //console.log(dbItems);
       if (req.user) {
         res.render("materials", {
-          title: "Materials",
+          title: "Fabrics",
           materials: dbItems
         });
       } else {
@@ -77,7 +85,7 @@ module.exports = function (app) {
       //console.log(dbItems);
       if (req.user) {
         res.render("types", {
-          title: "Types",
+          title: "Types of Silhouette",
           types: dbItems
         });
       } else {
@@ -139,23 +147,25 @@ module.exports = function (app) {
     });
   });
 
-    // Load search text filtered items page
-    app.get("/search/:text", function (req, res) {
-      db.items.findAll({ where:{
+  // Load search text filtered items page
+  app.get("/search/:text", function (req, res) {
+    db.items.findAll({
+      where: {
         $or: [
-          {season: req.params.text},
-          {type:req.params.text},
-          {material:req.params.text},
-          {name:{$like:"%"+ req.params.text+"%"}},
-          {color:{$like:"%"+ req.params.text+"%"}},
-          {description: {$like:"%"+req.params.text+"%"}}
-        ] }
-      }).then(function (dbItems) {
-        res.render("all", {
-          items: dbItems
-        });
+          { season: req.params.text },
+          { type: req.params.text },
+          { material: req.params.text },
+          { name: { $like: "%" + req.params.text + "%" } },
+          { color: { $like: "%" + req.params.text + "%" } },
+          { description: { $like: "%" + req.params.text + "%" } }
+        ]
+      }
+    }).then(function (dbItems) {
+      res.render("all", {
+        items: dbItems
       });
     });
+  });
 
   // Load season filtered items page
   app.get("/season/:season", function (req, res) {
@@ -166,14 +176,14 @@ module.exports = function (app) {
     });
   });
 
-// Load material filtered items page
-app.get("/material/:materialName", function (req, res) {
-  db.items.findAll({ where: { material: req.params.materialName } }).then(function (dbItems) {
-    res.render("all", {
-      items: dbItems
+  // Load material filtered items page
+  app.get("/material/:materialName", function (req, res) {
+    db.items.findAll({ where: { material: req.params.materialName } }).then(function (dbItems) {
+      res.render("all", {
+        items: dbItems
+      });
     });
   });
-});
 
   app.get("/type/:typeName", function (req, res) {
     db.items.findAll({ where: { type: req.params.typeName } }).then(function (dbItems) {
@@ -231,6 +241,30 @@ app.get("/material/:materialName", function (req, res) {
             res.status(200).end();
           }
         });
+  });
+
+  // Load wishlist page
+  app.get("/wishlist", function (req, res) {
+    if (req.user) {
+      db.wishlists.findAll({
+        attributes: [
+          'email',
+          [Sequelize.fn('GROUP_CONCAT', Sequelize.col('items')), 'items']
+        ],
+        where: { email: req.user.email }
+      }).map(function (element) {
+        var items = element.get('items').split(",");
+        //console.log(items);
+        db.items.findAll({ where: { id: {$in:items }} })
+          .then(function (ItemsdbItem) {
+            res.render("wishlist", {
+              items: ItemsdbItem
+            });
+          });
+      });
+    } else {
+      res.redirect("/login");
+    }
   });
 
 

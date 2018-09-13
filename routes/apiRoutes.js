@@ -59,7 +59,9 @@ module.exports = function(app) {
 
   // Get all items
   app.get("/api/items", function(req, res) {
-    db.items.findAll({}).then(function(dbItems) {
+    db.items.findAll({order: [
+      ['createdAt', 'DESC']
+  ]}).then(function(dbItems) {
       res.json(dbItems);
     }).catch(function(err) {
       console.log(err);
@@ -87,6 +89,20 @@ module.exports = function(app) {
       res.json(err);
     });
   });
+
+    // Create a add item to wishlist
+    app.post("/api/wishlist", function(req, res) {
+      db.wishlists.create(req.body).then(function(dbItem) {
+        res.json(dbItem);
+      }).catch(function(err) {
+        var error=JSON.stringify(err, null, 2);
+        console.log(error);
+        if(error==1062){
+          res.json("Already added to wishlist.");
+        }
+        
+      });
+    });
 
   // Delete an item by id
   app.delete("/api/item/:id", function(req, res) {
