@@ -253,14 +253,18 @@ module.exports = function (app) {
         ],
         where: { email: req.user.email }
       }).map(function (element) {
-        var items = element.get('items').split(",");
-        //console.log(items);
-        db.items.findAll({ where: { id: {$in:items }} })
-          .then(function (ItemsdbItem) {
-            res.render("wishlist", {
-              items: ItemsdbItem
+        if (items != null) {
+          var items = element.get('items').split(",");
+          //console.log(items);
+          db.items.findAll({ where: { id: { $in: items } } })
+            .then(function (ItemsdbItem) {
+              res.render("wishlist", {
+                items: ItemsdbItem
+              });
             });
-          });
+        }else{
+          res.render("wishlist",{});
+        }
       });
     } else {
       res.redirect("/login");

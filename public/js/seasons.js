@@ -64,15 +64,15 @@ var saveSeason = function (event) {
     name: $seasonName.val().trim()
   };
 
+  if (!(season.name)) {
+    swal("","You must enter a season name.","error");
+    return;
+  }
+
   seasonAPI.saveSeason(season).then(function () {
     refreshSeasons();
   });
 
-
-  if (!(season.name)) {
-    alert("You must enter a name!");
-    return;
-  }
   $seasonName.val("");
 };
 
