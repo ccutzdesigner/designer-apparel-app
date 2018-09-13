@@ -22,11 +22,11 @@ form.login {
 
  .cz-light{
   background-color:#003366;
-  color:#FF8370;
+  color:#FFACA0;
  }
 
  .cz-dark{
-  background-color:#FF8370;
+  background-color:#FFACA0;
   color:#003366;
  }
 
@@ -42,11 +42,11 @@ header{
 body{
 /*background-color: #f8f9fa;*/
 background-color:#003366;
-color:#FF8370;
+color:#FFACA0;
 }
 
 .text-coral{
-  color:#FF8370;
+  color:#FFACA0;
 }
 
 .navbar-light .navbar-brand{
@@ -63,7 +63,7 @@ color:#FF8370;
 }
 
 a, #navbarCollapse .nav-link{
-  color:#FF8370;
+  color:#FFACA0;
 }
 
 .message-email:hover{
@@ -83,7 +83,7 @@ a:hover, #navbarCollapse .nav-link:hover{
 .cz-h1{
   font-family: 'Seaweed Script';
   font-size:36px;
-  color:#FF8370;
+  color:#FFACA0;
 }
 
 .cz-btn{
@@ -102,8 +102,8 @@ a:hover, #navbarCollapse .nav-link:hover{
   line-height: 1.5;
   border-radius: .25rem;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  background-color: #FF8370;
-  border-color: #FF8370;
+  background-color: #FFACA0;
+  border-color: #FFACA0;
   color:#ffffff;
 }
 
@@ -111,18 +111,18 @@ a:hover, #navbarCollapse .nav-link:hover{
 .cz-btn:active,  .cz-btn .active,
 .cz-btn .active:focus, .cz-btn:active:focus{
   background-color: #ffffff;
-  border-color: #FF8370;
-  color:#FF8370;
+  border-color: #FFACA0;
+  color:#FFACA0;
 }
 
 .navbar-light .navbar-toggler {
-  color: #FF8370;
-  border-color:#FF8370;
+  color: #FFACA0;
+  border-color:#FFACA0;
 }
 
 .navbar-light .navbar-toggler-icon{
   background-image:url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 131, 112, 2)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-  border-color:#FF8370;
+  border-color:#FFACA0;
 }
 
 #searchbar .navbar-toggler {
@@ -138,14 +138,14 @@ a:hover, #navbarCollapse .nav-link:hover{
 .social a {
   font-size: 32px;
   margin: 0 10px;
-  color: #FF8370;
+  color: #FFACA0;
 }
 
 .btn-outline-success {
-    color: #FF8370;
+    color: #FFACA0;
     background-color: transparent;
     background-image: none;
-    border-color: #FF8370;
+    border-color: #FFACA0;
 }
 
 .btn-outline-success:hover {
@@ -156,7 +156,7 @@ a:hover, #navbarCollapse .nav-link:hover{
 }
 
 .navbar-light .navbar-nav .nav-link{
-  color:#FF8370;
+  color:#FFACA0;
 }
 
 .navbar-light .navbar-nav .nav-link:hover{
@@ -168,7 +168,7 @@ color:#ffffff;
 }
 
 .admin-icons:hover{
-  border:2px solid #FF8370;
+  border:2px solid #FFACA0;
 }
 
 .admin-options{
@@ -178,9 +178,10 @@ color:#ffffff;
     padding:20px;
 }
 
-.caption {
+.caption-icons,.caption {
   display: block;
 }
+
 
 .caption:hover {
   color:#003366;
@@ -191,11 +192,11 @@ footer{
 }
 
 .dropdown-item{
-  color:#FF8370;
+  color:#FFACA0;
 }
 .dropdown-item:hover{
   color:#ffffff;
-  background-color: #FF8370;
+  background-color: #FFACA0;
 }
 
 .form-group.required .control-label:after {
@@ -207,6 +208,7 @@ footer{
   width:500px;
   height: 500px;
 }
+
 
 @media screen and (max-width: 425px) {
 

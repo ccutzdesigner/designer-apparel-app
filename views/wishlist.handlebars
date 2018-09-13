@@ -1,6 +1,15 @@
-  <section class="container text-center">
+  <!doctype html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+  <main role="main">
+<section class="container text-center">
       {{#if items}}
-      <h1 class="cz-h1">Collection</h1>
+      <h1 class="cz-h1">Favorite Collection</h1>
       {{else}}
       <h2>No items found.</h2>
       {{/if}}
@@ -12,14 +21,13 @@
             <a href="/item/{{this.id}}"><span class='zoom'><img class="card-img-top" id="item-pic{{this.id}}" src="{{this.pic}}" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
               alt="item pic"></span></a>
             <div class="card-body">
-              <p class="card-text">{{this.name}} <a onclick="liked({{this.id}})" id="alike{{this.id}}" title="Love the item"><i class="far fa-heart" id="heart{{this.id}}"></i></a></p>
+              <p class="card-text">{{this.name}}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <small class="text-muted">{{this.type}}</small>
                 <small class="text-muted">{{this.material}}</small>
                 <small class="text-muted">{{this.color}}</small>
                 <small class="text-muted">{{this.season}}</small>
-                 <small class="text-muted"><a href="#" onclick="addToWishList({{this.id}});"><img src="/images/wishlist.png" width="16" height="16" title="Add to wishlist"></a></small>
-                <small class="text-muted"><a href="/message/{{this.id}}" title="Send a message"><i class="fas fa-envelope text-coral"></i></a></small>
+                <small class="text-muted"><a href="/message/{{this.id}}"><i class="fas fa-envelope text-coral"></i></a></small>
               </div>
             </div>
           </div>
@@ -27,3 +35,13 @@
         {{/each}}
       </div>
     </section>
+  </main>
+  <script type="text/javascript" src="/js/members.js"></script>
+  <script type="text/javascript" src="/js/lib/sweetalert.min.js"></script>
+  <script type="text/javascript" src="/js/wishlist.js"></script>
+</body>
+
+</html>
+  
+  
+  
