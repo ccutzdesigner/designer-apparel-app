@@ -7,14 +7,18 @@
                 <div class="card">
                     <div class="card-header">
                         <a class="message-email" href="mailto:{{this.email}}" >{{this.email}} </a>
+
                         <span class="float-right">{{this.createdAt}}</span>
                     </div>
+                    <span class="float-right"><a href="/item/{{this.item}}" class="cz-btn">Item Details</a></span>
+
                     <div class="card-body">
                         <blockquote class="blockquote mb-0">
                             <p>{{this.message}}</p>
                             <footer class="blockquote-footer"> <cite title="Source Title">{{this.name}}</cite></footer>
                         </blockquote>
                     </div>
+                    
                 </div>
 <br>
                 {{/each}}
