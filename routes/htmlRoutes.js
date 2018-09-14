@@ -253,8 +253,8 @@ module.exports = function (app) {
         ],
         where: { email: req.user.email }
       }).map(function (element) {
-        if (items != null) {
           var items = element.get('items').split(",");
+          if (items != null) {
           //console.log(items);
           db.items.findAll({ where: { id: { $in: items } } })
             .then(function (ItemsdbItem) {
