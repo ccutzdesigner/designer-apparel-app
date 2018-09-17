@@ -42,7 +42,7 @@ var itemAPI = {
 var refreshItems = function () {
   itemAPI.getItems().then(function (data) {
     var $items = data.map(function (item) {
-      console.log(item);
+      //console.log(item);
 
       var $a = $("<a>")
         .html("<span class='caption'>"+item.name+"</span>")

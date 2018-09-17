@@ -43,7 +43,6 @@ var lastName=$("input#last-name");
   }
 
   function handleLoginErr(err) {
-    
     $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
   }
