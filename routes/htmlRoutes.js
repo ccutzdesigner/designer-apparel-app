@@ -244,7 +244,7 @@ module.exports = function (app) {
   });
 
   // Load wishlist page
-  app.get("/wishlist", function (req, res) {
+  app.get("/wishlist", isAuthenticated, function (req, res) {
     if (req.user) {
       db.wishlists.findAll({
         attributes: [

@@ -13,6 +13,8 @@ $(document).ready(function() {
       $("#menu").append("<a class='dropdown-item' href='/logout'>Logout</a>");
       $(".member-name").html(" "+data.firstName+" "+data.lastName);
       $("#login-id").hide();
+    }else{
+      sessionStorage.removeItem("email");
     }
   });
 });
