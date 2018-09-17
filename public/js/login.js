@@ -32,7 +32,7 @@ $(document).ready(function() {
     }).then(function(data) {
       window.location.replace(data);
       // If there's an error, log the error
-    }).error(function(err) {
+    }).catch(function(err) {
       swal("", "Email or password is incorrect", "error");
     });
   }
