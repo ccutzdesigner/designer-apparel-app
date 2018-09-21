@@ -34,7 +34,7 @@ function addToWishList(itemId) {
       }
     });
   } else {
-    swal("Is't that a pretty item..", "Please login and add to wishlist.", "error");
+    swal("Isn't it a pretty item..", "Please login and add to wishlist.", "error");
     return;
   }
 }
